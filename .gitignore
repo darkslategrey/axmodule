@@ -1,0 +1,13 @@
+/test.php
+/custom*
+/bootstrap
+/multicompany
+*.DS_Store
+*~
+tmp
+*.\#*
+documents
+htdocs/conf/conf.php
+*conf.php
+*.bckp
+*\#*\#
