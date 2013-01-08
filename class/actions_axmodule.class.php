@@ -20,8 +20,8 @@ class ActionsAxModule
       if (in_array('contactcard',explode(':',$parameters['context']))) 
         { 
 	  if($action == 'update' || $action == 'create' || $action == 'add') {
-	    $_POST['lastname'] = mb_strtoupper($_POST['lastname']);
-	    $_POST['town']     = mb_strtoupper($_POST['town']);
+	    $_POST['lastname'] = mb_strtoupper($_POST['lastname'], 'UTF-8');
+	    $_POST['town']     = mb_strtoupper($_POST['town'], 'UTF-8');
 	  }
         }
     }
