@@ -284,7 +284,7 @@ class modAxModule extends DolibarrModules
 	 */
 	function load_tables()
 	{
-		return $this->_load_tables('/axmodule/sql/');
+	  return $this->_load_tables(DOL_DOCUMENT_ROOT.'/axmodule/sql/');
 	}
 }
 
