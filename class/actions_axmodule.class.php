@@ -12,30 +12,19 @@ class ActionsAxModule
      */ 
     function doActions($parameters, $object, $action) 
     { 
-      dol_syslog("GREGO doActions ".print_r($parameters, true), LOG_DEBUG); 
-      dol_syslog("GREGO doActions action <". $action . ">");
-      dol_syslog("GREGO doActions".print_r($object, true)); 
+      // dol_syslog("AxModule doActions ".print_r($_POST, true), LOG_DEBUG); 
+      // dol_syslog("AxModule doActions ".print_r($parameters, true), LOG_DEBUG); 
+      // dol_syslog("AxModule doActions action <". $action . ">");
+      // dol_syslog("AxModule doActions".print_r($object, true)); 
  
-        if (in_array('somecontext',explode(':',$parameters['context']))) 
+      if (in_array('contactcard',explode(':',$parameters['context']))) 
         { 
-          // do something only for the context 'somecontext'
+	  if($action == 'update' || $action == 'create' || $action == 'add') {
+	    $_POST['lastname'] = mb_strtoupper($_POST['lastname']);
+	    $_POST['town']     = mb_strtoupper($_POST['town']);
+	  }
         }
     }
-
-    function addStatisticLine($parameters, $object, $action)
-    {
-
-      dol_syslog("GREGO addStatisticLine ".print_r($parameters, true), LOG_DEBUG); 
-      dol_syslog("GREGO addStatisticLine action <". $action . ">");
-      dol_syslog("GREGO addStatisticLine ".print_r($object, true)); 
- 
-        if (in_array('somecontext',explode(':',$parameters['context']))) 
-        { 
-          // do something only for the context 'somecontext'
-        }
-      
-    }
-
 }
 
 
