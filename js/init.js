@@ -33,10 +33,11 @@ $(function() {
 
     // mailing: Filter destinataire by category
     var my_form = $("form[name=thirdparties]");
-    var action = my_form.attr("action");
-    var re = /comm\/mailing\/cibles.php\/comm\/mailing\/cibles.php/;
-    action = action.replace(re, "axmodule/lib/cibles.php");
-    // my_form.attr("action", action);
-
+    var my_action = my_form.attr("action");
+    if(my_action != null) {
+	var re = /comm\/mailing\/cibles.php\/comm\/mailing\/cibles.php/;
+	my_action = my_action.replace(re, "axmodule/lib/cibles.php");
+	// my_form.attr("action", action);
+    }
 });
 
