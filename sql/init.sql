@@ -8,6 +8,9 @@ INSERT INTO llx_const(name,value,type,visible,note,entity) VALUES ('CONTACT_USE_
 DELETE FROM llx_const WHERE name = 'AGENDA_USE_EVENT_TYPE' AND entity = 1;
 INSERT INTO llx_const(name,value,type,visible,note,entity) VALUES ('AGENDA_USE_EVENT_TYPE', '1','chaine',1,'',1);
 
+-- Hide payement conditions on propals
+DELETE FROM llx_const WHERE name = 'PROPALE_PDF_HIDE_PAYMENTTERMCOND' AND entity = 1;
+INSERT INTO llx_const(name,value,type,visible,note,entity) VALUES ('PROPALE_PDF_HIDE_PAYMENTTERMCOND', '1','chaine',1,'',1);
 
 
 
