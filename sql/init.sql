@@ -12,6 +12,6 @@ INSERT INTO llx_const(name,value,type,visible,note,entity) VALUES ('AGENDA_USE_E
 DELETE FROM llx_const WHERE name = 'PROPALE_PDF_HIDE_PAYMENTTERMCOND' AND entity = 1;
 INSERT INTO llx_const(name,value,type,visible,note,entity) VALUES ('PROPALE_PDF_HIDE_PAYMENTTERMCOND', '1','chaine',1,'',1);
 
-
-
+-- Google module: set llx_actioncomm.ref_ext lenght to 256
+alter table `llx_actioncomm` modify `ref_ext` varchar(256);
 
