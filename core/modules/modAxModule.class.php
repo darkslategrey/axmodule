@@ -200,7 +200,7 @@ class modAxModule extends DolibarrModules
 					'titre'=>'Ax Agenda',
 					'mainmenu'=>'axmodule',
 		//							'leftmenu'=>'mymodule',
-					'url'=>'/axagenda',
+					'url'=>'http://ks304579.kimsufi.com:9292',
 		//							'langs'=>'mylangfile@mymodule',	        // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
 					'position'=>100,
 					// 'enabled'=>'$conf->mymodule->enabled',	// Define condition to show or hide menu entry. Use '$conf->mymodule->enabled' if entry must be visible if module is enabled.
