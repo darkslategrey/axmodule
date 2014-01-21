@@ -106,9 +106,43 @@ class InterfaceMyTrigger
     {
         // Put here code you want to execute when a Dolibarr business events occurs.
         // Data and type of action are stored into $object and $action
-    
+
+
+	// Actions
+        if($action == 'ACTION_CREATE') {
+	  dol_syslog("Trigger UNE ACTION CREEE '".$this->name."' for action '$action' launched by ".__FILE__.". id=".$object->id);	    
+	  // On relie l'action à l'ax
+	  // On va chercher l'id de l'agenda
+	  $sql = "select id from ax_agendas where name like 'Action%'";
+	  dol_syslog($this->name . "::fetch sql=" . $sql, LOG_DEBUG);
+	  $resql = $this->db->query($sql);
+	  $ax_id = '';
+	  if ($resql) {
+            if ($this->db->num_rows($resql)) {
+	      $obj = $this->db->fetch_object($resql);
+
+	      $ax_id = $obj->id;
+	    }
+	    $this->db->free($resql);
+	    /* $actioncomm = new ActonComm($this->db); */
+	    /* $actioncomm->fetch($object->id); */
+	    /* $actioncomm->ax_agenda_id = $ax_id; */
+	    $sql = 'update llx_actioncomm set ax_agenda_id = ' . $ax_id . ' where id = ' . $object->id;
+	    $this->db->begin("modAxModule::maj ax_agenda_id");
+	    $resql = $this->db->query($sql);
+	    if ($resql) {
+	      $this->db->commit("ActionComm::maj ax_agenda_id");
+	    } else {
+	      $this->error = "Error " . $this->db->lasterror();
+	      dol_syslog($this->name . "::update " . $this->error, LOG_ERR);
+	    }
+	  } else {
+	    $this->error = "Error " . $this->db->lasterror();
+	    dol_syslog($this->name . "::fetch " . $this->error, LOG_ERR);
+	  }
+	}
         // Users
-        if     ($action == 'USER_LOGIN')
+        elseif($action == 'USER_LOGIN')
         {
             dol_syslog("Trigger '".$this->name."' for action '$action' launched by ".__FILE__.". id=".$object->id);
         }
